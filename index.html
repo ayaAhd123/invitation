@@ -1,0 +1,369 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no" />
+  <meta name="theme-color" content="#eef4f9" />
+  <title>Our Wedding Invitation</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Scheherazade+New:wght@400;500;600;700&family=Cormorant+Garamond:ital,wght@0,400;0,500;0,600;1,400&family=Great+Vibes&family=EB+Garamond:ital@0;1&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="styles.css" />
+</head>
+<body>
+
+  <!-- language switch -->
+  <button id="langBtn" class="lang-btn" type="button">العربية</button>
+
+  <!-- ============ COVER : CLICK TO OPEN ============ -->
+  <section id="cover" class="cover">
+    <div class="paper-texture"></div>
+    <div class="envelope-real envelope-cover" aria-hidden="true">
+      <div class="env-body"></div>
+      <div class="env-fold env-fold-l"></div>
+      <div class="env-fold env-fold-r"></div>
+      <div class="env-flap-top"></div>
+      <div class="env-flap-bottom"></div>
+    </div>
+
+    <div class="cover-ui" role="button" tabindex="0" aria-label="Click to open the invitation" onclick="openInvite(event)">
+      <button id="openBtn" type="button" class="seal-btn" aria-label="Click to open the invitation">
+        <span class="seal-ring">
+          <img src="images/wax-seal.png" alt="" class="wax-seal" width="140" height="140" />
+        </span>
+      </button>
+      <p class="cover-cta" data-i18n="cover.cta">Click to open</p>
+    </div>
+  </section>
+
+  <!-- ============ MAIN INVITATION ============ -->
+  <main id="invite" class="invite" aria-hidden="true">
+
+    <!-- ---- HERO : NAMES ---- -->
+    <section class="hero" id="hero">
+      <div class="hero-bg" style="background-image:url('images/hero.png')"></div>
+      <div class="hero-veil"></div>
+
+      <div class="sky" aria-hidden="true">
+        <div class="cloud cloud-a"></div>
+        <div class="cloud cloud-b"></div>
+        <div class="cloud cloud-c"></div>
+        <div class="cloud cloud-d"></div>
+        <svg class="bird bird-1" viewBox="0 0 60 24"><use href="#bird"/></svg>
+        <svg class="bird bird-2" viewBox="0 0 60 24"><use href="#bird"/></svg>
+        <svg class="bird bird-3" viewBox="0 0 60 24"><use href="#bird"/></svg>
+        <div class="feathers" id="feathers"></div>
+      </div>
+
+      <div class="hero-content reveal">
+        <p class="hero-eyebrow" data-i18n="hero.eyebrow">together with their families</p>
+        <h1 class="couple-names">
+          <span class="n1" data-i18n="name.1">Salma</span>
+          <span class="amp" data-i18n="amp">&amp;</span>
+          <span class="n2" data-i18n="name.2">Youssef</span>
+        </h1>
+        <p class="hero-sub" data-i18n="hero.sub">are getting married!</p>
+        <div class="scroll-hint">
+          <span data-i18n="scroll">scroll</span>
+          <span class="chev"></span>
+        </div>
+      </div>
+    </section>
+
+    <!-- ---- SCRATCH TO REVEAL THE DATE ---- -->
+    <section class="scratch-section bg-white section-anim" id="date">
+      <h2 class="script-title small deco reveal" data-i18n="scratch.title">Scratch to reveal the date</h2>
+      <div class="scratch-row">
+        <div class="scratch-card reveal stagger-1">
+          <canvas class="scratch" data-reveal="14" width="220" height="220"></canvas>
+          <span class="scratch-value">14</span>
+          <label data-i18n="day">DAY</label>
+        </div>
+        <div class="scratch-card reveal stagger-2">
+          <canvas class="scratch" width="220" height="220"></canvas>
+          <span class="scratch-value" data-i18n="month.aug">August</span>
+          <label data-i18n="month">MONTH</label>
+        </div>
+        <div class="scratch-card reveal stagger-3">
+          <canvas class="scratch" data-reveal="2026" width="220" height="220"></canvas>
+          <span class="scratch-value">2026</span>
+          <label data-i18n="year">YEAR</label>
+        </div>
+      </div>
+      <p class="scratch-hint" data-i18n="scratch.hint">use your finger to scratch each card</p>
+    </section>
+
+    <!-- ---- COUNTDOWN ---- -->
+    <section class="countdown-section bg-blue section-anim" id="countdown">
+      <h2 class="script-title" data-i18n="cd.title">Countdown to our wedding</h2>
+      <p class="section-note" data-i18n="cd.note">We can&rsquo;t wait to celebrate with you</p>
+
+      <div class="countdown" id="countdownBox" aria-live="polite">
+        <div class="cd-unit">
+          <span class="cd-num" id="cdDays">00</span>
+          <span class="cd-label" data-i18n="cd.days">Days</span>
+        </div>
+        <span class="cd-sep">:</span>
+        <div class="cd-unit">
+          <span class="cd-num" id="cdHours">00</span>
+          <span class="cd-label" data-i18n="cd.hours">Hours</span>
+        </div>
+        <span class="cd-sep">:</span>
+        <div class="cd-unit">
+          <span class="cd-num" id="cdMins">00</span>
+          <span class="cd-label" data-i18n="cd.mins">Minutes</span>
+        </div>
+        <span class="cd-sep">:</span>
+        <div class="cd-unit">
+          <span class="cd-num" id="cdSecs">00</span>
+          <span class="cd-label" data-i18n="cd.secs">Seconds</span>
+        </div>
+      </div>
+      <p class="cd-done" id="cdDone" hidden data-i18n="cd.done">Today is the day!</p>
+    </section>
+
+    <!-- ---- LETTER / ENVELOPE (slides up on scroll) ---- -->
+    <section class="letter-section bg-blue section-anim" id="letter">
+      <div class="letter-stage">
+        <div class="env-back"></div>
+
+        <div class="letter-slot">
+          <div class="letter-paper" id="letterPaper">
+            <p class="bismillah ar-only">بِسْمِ اللَّهِ الرَّحْمَٰنِ الرَّحِيمِ</p>
+
+            <div class="letter-reveal">
+              <div class="ar-only letter-sacred">
+                <p class="quran-verse">وَمِنْ آيَاتِهِ أَنْ خَلَقَ لَكُم مِّنْ أَنفُسِكُمْ أَزْوَاجًا لِّتَسْكُنُوا إِلَيْهَا وَجَعَلَ بَيْنَكُم مَّوَدَّةً وَرَحْمَةً</p>
+                <p class="quran-ref">سورة الروم — الآية ٢١</p>
+              </div>
+
+              <h2 class="script-title" data-i18n="letter.title">Dear friends and family,</h2>
+              <p data-i18n="letter.p1">As we get ready to say &ldquo;I do,&rdquo; we feel grateful for the wonderful people in our lives.</p>
+              <p data-i18n="letter.p2">Your support means the world to us, and we would be honored to have you with us as we begin our life together.</p>
+            </div>
+          </div>
+        </div>
+
+        <div class="env-pocket"></div>
+      </div>
+    </section>
+
+    <!-- ---- SCHEDULE (MOROCCAN) ---- -->
+    <section class="schedule-section bg-white section-anim" id="schedule">
+      <div class="schedule-clouds" id="schedClouds" aria-hidden="true">
+        <div class="sc-cloud sc-left"></div>
+        <div class="sc-cloud sc-right"></div>
+        <div class="puff puff-1"></div>
+        <div class="puff puff-2"></div>
+        <div class="puff puff-3"></div>
+        <div class="puff puff-4"></div>
+        <div class="puff puff-5"></div>
+        <div class="puff puff-6"></div>
+      </div>
+
+      <div class="schedule-inner">
+        <h2 class="script-title reveal" data-i18n="schedule.title">Schedule of Events</h2>
+        <p class="section-note" data-i18n="schedule.note">A celebration in true Moroccan spirit</p>
+
+        <div class="timeline">
+          <div class="t-item reveal stagger-1">
+            <div class="t-time">18:00</div>
+            <div class="t-dot"></div>
+            <div class="t-text">
+              <h3 data-i18n="ev1.t">Hflat l&rsquo;Henna</h3>
+              <p data-i18n="ev1.d">Henna ceremony &amp; blessings for the bride</p>
+            </div>
+          </div>
+          <div class="t-item reveal stagger-2">
+            <div class="t-time">20:00</div>
+            <div class="t-dot"></div>
+            <div class="t-text">
+              <h3 data-i18n="ev2.t">Dkhoul l&rsquo;Aroussa</h3>
+              <p data-i18n="ev2.d">The Amariya entrance of the bride &amp; groom</p>
+            </div>
+          </div>
+          <div class="t-item reveal stagger-3">
+            <div class="t-time">21:00</div>
+            <div class="t-dot"></div>
+            <div class="t-text">
+              <h3 data-i18n="ev3.t">L&rsquo;Aada &amp; Dinner</h3>
+              <p data-i18n="ev3.d">Traditional feast with family &amp; friends</p>
+            </div>
+          </div>
+          <div class="t-item reveal stagger-4">
+            <div class="t-time">23:00</div>
+            <div class="t-dot"></div>
+            <div class="t-text">
+              <h3 data-i18n="ev4.t">Dakka &amp; Dancing</h3>
+              <p data-i18n="ev4.d">Music, chaabi &amp; celebration until dawn</p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ---- VENUE / MAP ---- -->
+    <section class="venue-section bg-blue section-anim" id="venue">
+      <h2 class="script-title reveal" data-i18n="venue.title">Wedding Venue</h2>
+      <div class="venue-card reveal">
+        <div class="venue-head">
+          <span class="pin"></span>
+          <div>
+            <h3 data-i18n="venue.name">Riad Dar Zellij</h3>
+            <p data-i18n="venue.place">Marrakech, Morocco</p>
+          </div>
+        </div>
+        <div class="map-wrap">
+          <iframe
+            title="Wedding venue location"
+            src="https://www.google.com/maps?q=Marrakech%2C%20Morocco&output=embed"
+            loading="lazy"
+            referrerpolicy="no-referrer-when-downgrade"
+            allowfullscreen></iframe>
+        </div>
+        <a class="map-link" target="_blank" rel="noopener"
+           href="https://www.google.com/maps/search/?api=1&query=Marrakech%2C+Morocco"
+           data-i18n="map.link">Open in Google Maps</a>
+      </div>
+    </section>
+
+    <!-- ---- DRESS CODE ---- -->
+    <section class="dress-section bg-white section-anim" id="dress">
+      <h2 class="script-title reveal" data-i18n="dress.title">Dress Code</h2>
+      <p class="section-note" data-i18n="dress.note">We would be very happy if your outfit is in the colours of the wedding theme.</p>
+      <div class="scroll-cue"><span data-i18n="scroll">scroll</span><span class="arrow"></span></div>
+
+      <div class="dress-scroller">
+        <figure class="reveal stagger-1"><img src="images/dress1.png" alt="Dress code inspiration for ladies and gentlemen" /></figure>
+        <figure class="reveal stagger-2"><img src="images/dress2.png" alt="Dress code inspiration in linen tones" /></figure>
+      </div>
+
+      <div class="palette-row">
+        <span class="palette-label" data-i18n="colours">Colours</span>
+        <span class="swatch" style="background:#f4ead7"></span>
+        <span class="swatch" style="background:#e6c98f"></span>
+        <span class="swatch" style="background:#f3c9cb"></span>
+        <span class="swatch" style="background:#bcd6ea"></span>
+        <span class="swatch" style="background:#5b9bd0"></span>
+      </div>
+
+      <div class="dress-notes">
+        <p data-i18n="dress.ladies"><strong>Ladies:</strong> Elegant summer dresses in pastel tones. We recommend bringing a hat and sunglasses for comfort.</p>
+        <p data-i18n="dress.men"><strong>Gentlemen:</strong> Light linen suits in cream, beige or soft blue.</p>
+      </div>
+    </section>
+
+    <!-- ---- MESSAGE WALL ---- -->
+    <section class="wall-section bg-blue section-anim" id="wall">
+      <div class="wall-inner reveal">
+        <h2 class="script-title" data-i18n="wall.title">Leave a note on our wall</h2>
+        <p class="section-note" data-i18n="wall.note">Pin your beautiful words — they will bloom here for everyone to see.</p>
+
+        <form id="wallForm" class="wall-form">
+          <input type="text" id="wallName" data-i18n-ph="ph.name" placeholder="Your name" autocomplete="name" maxlength="40" />
+          <textarea id="wallText" rows="3" data-i18n-ph="ph.msg" placeholder="Write something beautiful..." required maxlength="280"></textarea>
+          <button type="submit" class="wall-pin-btn" data-i18n="wall.pin">Pin to the wall</button>
+        </form>
+
+        <p class="wall-hint" data-i18n="wall.tap">Tap a note to read it &amp; see who wrote it</p>
+
+        <div class="wall-frame">
+          <span class="wall-count" id="wallCount" hidden></span>
+          <div class="wall-scroll" id="wallScroll">
+            <div class="wall-board" id="wallBoard" aria-live="polite">
+              <p class="wall-empty" id="wallEmpty" data-i18n="wall.empty">Be the first to pin a note!</p>
+            </div>
+          </div>
+        </div>
+
+        <!-- tap note → read full message + sender -->
+        <div id="noteModal" class="note-modal" hidden aria-hidden="true">
+          <div class="note-modal-backdrop" id="modalBackdrop"></div>
+          <div class="note-modal-card" role="dialog" aria-modal="true">
+            <button type="button" class="note-modal-close" id="modalClose" aria-label="Close">&times;</button>
+            <p class="modal-from-label" data-i18n="wall.from">From</p>
+            <h3 class="modal-sender" id="modalSender"></h3>
+            <div class="modal-divider"></div>
+            <p class="modal-text" id="modalText"></p>
+          </div>
+        </div>
+
+        <p class="closing-line" data-i18n="closing.line">Hope to see your beautiful faces there!</p>
+        <h3 class="closing-names" data-i18n="closing.names">Salma &amp; Youssef</h3>
+      </div>
+    </section>
+
+  </main>
+
+  <!-- floating music toggle -->
+  <button id="musicBtn" type="button" class="music-btn" aria-label="Toggle music" hidden onclick="weddingToggleMusic(event)">
+    <span class="ic-pause"></span>
+  </button>
+
+  <!-- hidden youtube player (audio only) -->
+  <div id="yt-host" aria-hidden="true"></div>
+
+  <!-- reusable bird shape -->
+  <svg width="0" height="0" aria-hidden="true" style="position:absolute">
+    <defs>
+      <path id="bird" d="M2 14 C12 4 22 4 30 12 C38 4 48 4 58 14 C48 10 40 11 30 18 C20 11 12 10 2 14 Z"/>
+    </defs>
+  </svg>
+
+  <!-- music loads first so YouTube API never misses its callback -->
+  <script>
+  (function(){
+    var VID = 'ARh_bhCqiiM';
+    var player = null, ready = false, wantsPlay = false, playing = false;
+
+    function playMusic(){
+      if (!ready || !player){ wantsPlay = true; return; }
+      wantsPlay = false;
+      try {
+        player.unMute();
+        player.setVolume(100);
+        player.playVideo();
+        playing = true;
+        var btn = document.getElementById('musicBtn');
+        if (btn) btn.classList.remove('paused');
+      } catch(e){ wantsPlay = true; }
+    }
+
+    function pauseMusic(){
+      if (player && ready){ try { player.pauseVideo(); } catch(e){} }
+      playing = false;
+      var btn = document.getElementById('musicBtn');
+      if (btn) btn.classList.add('paused');
+    }
+
+    function initPlayer(){
+      if (player) return;
+      player = new YT.Player('yt-host', {
+        videoId: VID,
+        width: 200,
+        height: 200,
+        playerVars: { autoplay:0, controls:0, loop:1, playlist:VID, playsinline:1 },
+        events: {
+          onReady: function(){
+            ready = true;
+            if (wantsPlay) playMusic();
+          }
+        }
+      });
+    }
+
+    window.onYouTubeIframeAPIReady = initPlayer;
+    if (window.YT && window.YT.Player) initPlayer();
+
+    window.weddingStartMusic = playMusic;
+    window.weddingToggleMusic = function(e){
+      if (e){ e.preventDefault(); e.stopPropagation(); }
+      if (playing) pauseMusic();
+      else playMusic();
+    };
+  })();
+  </script>
+  <script src="https://www.youtube.com/iframe_api"></script>
+  <script src="script.js"></script>
+</body>
+</html>
