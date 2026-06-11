@@ -21,7 +21,7 @@ const I18N = {
   'hero.sub':    {en:'are getting married!', ar:'سيتزوجان بإذن الله'},
   'scroll':      {en:'scroll', ar:'مرّر للأسفل'},
 
-  'scratch.title':{en:'Scratch to reveal the date', ar:'احكُ لتكشف التاريخ'},
+  'scratch.title':{en:'Scratch to reveal the date', ar:'امسح لتكشف التاريخ'},
   'day':   {en:'DAY', ar:'اليوم'},
   'month': {en:'MONTH', ar:'الشهر'},
   'year':  {en:'YEAR', ar:'السنة'},

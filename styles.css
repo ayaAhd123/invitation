@@ -279,12 +279,12 @@ body.ar .lang-btn{right:auto;left:14px;font-family:'Scheherazade New',serif}
 .hero-ar{max-width:36ch;margin:0 auto}
 .hero-bismillah{
   font-family:'Aref Ruqaa', serif;
-  font-size:clamp(1.15rem, 4.2vw, 1.5rem);
+  font-size:clamp(1.25rem, 5vw, 1.65rem);
   color:var(--gold-deep);line-height:1.5;margin:0 0 12px;
 }
 .hero-ar-stack{
   display:flex;flex-direction:column;align-items:center;
-  gap:clamp(16px, 4.5vw, 22px);
+  gap:clamp(12px, 3.2vw, 18px);
 }
 body.ar .hero-ar .couple-names{
   font-family:'Katibeh', 'Amiri', serif;
@@ -294,10 +294,10 @@ body.ar .hero-ar .couple-names{
 }
 .hero-ar-lead,.hero-ar-text{
   font-family:'Amiri', serif;
-  font-size:clamp(1rem, 3.6vw, 1.2rem);
+  font-size:clamp(1.15rem, 4.8vw, 1.38rem);
   font-weight:400;line-height:1.55;color:#4a3f30;margin:0;
 }
-.hero-ar-text{margin-top:clamp(14px, 4vw, 26px)}
+.hero-ar-text{margin-top:clamp(2px, 1vw, 8px)}
 .hero-ar-em{text-decoration:underline;text-underline-offset:4px;color:var(--gold-deep)}
 .hero-ar-keep{white-space:nowrap}
 
