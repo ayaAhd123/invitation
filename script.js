@@ -21,7 +21,7 @@ const I18N = {
   'hero.sub':    {en:'are getting married!', ar:'سيتزوجان بإذن الله'},
   'scroll':      {en:'scroll', ar:'مرّر للأسفل'},
 
-  'scratch.title':{en:'Scratch to reveal the date', ar:'اكشط لتكشف التاريخ'},
+  'scratch.title':{en:'Scratch to reveal the date', ar:'احكُ لتكشف التاريخ'},
   'day':   {en:'DAY', ar:'اليوم'},
   'month': {en:'MONTH', ar:'الشهر'},
   'year':  {en:'YEAR', ar:'السنة'},
@@ -156,7 +156,7 @@ function initScratch(canvas){
   const w = canvas.width, h = canvas.height;
 
   const g = ctx.createLinearGradient(0,0,w,h);
-  g.addColorStop(0,'#a9c6e0'); g.addColorStop(.5,'#cfe0ee'); g.addColorStop(1,'#8fb6d8');
+  g.addColorStop(0,'#e2c98a'); g.addColorStop(.5,'#f0e4c8'); g.addColorStop(1,'#d4b86a');
   ctx.fillStyle = g; ctx.fillRect(0,0,w,h);
   ctx.strokeStyle = 'rgba(255,255,255,.25)'; ctx.lineWidth = 6;
   for (let i=-h;i<w;i+=22){ ctx.beginPath(); ctx.moveTo(i,0); ctx.lineTo(i+h,h); ctx.stroke(); }

@@ -3,11 +3,11 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no" />
-  <meta name="theme-color" content="#eef4f9" />
+  <meta name="theme-color" content="#faf6ee" />
   <title>Our Wedding Invitation</title>
   <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-  <link href="https://fonts.googleapis.com/css2?family=Scheherazade+New:wght@400;500;600;700&family=Cormorant+Garamond:ital,wght@0,400;0,500;0,600;1,400&family=Great+Vibes&family=EB+Garamond:ital@0;1&display=swap" rel="stylesheet" />
+  <link href="https://fonts.googleapis.com/css2?family=Aref+Ruqaa&family=Amiri:ital,wght@0,400;0,700;1,400&family=Katibeh&family=Scheherazade+New:wght@400;500;600;700&family=Cormorant+Garamond:ital,wght@0,400;0,500;0,600;1,400&family=Great+Vibes&family=EB+Garamond:ital@0;1&display=swap" rel="stylesheet" />
   <link rel="stylesheet" href="styles.css" />
 </head>
 <body>
@@ -56,13 +56,29 @@
       </div>
 
       <div class="hero-content reveal">
-        <p class="hero-eyebrow" data-i18n="hero.eyebrow">together with their families</p>
-        <h1 class="couple-names">
-          <span class="n1" data-i18n="name.1">Salma</span>
-          <span class="amp" data-i18n="amp">&amp;</span>
-          <span class="n2" data-i18n="name.2">Youssef</span>
-        </h1>
-        <p class="hero-sub" data-i18n="hero.sub">are getting married!</p>
+        <div class="hero-layout en-only">
+          <p class="hero-eyebrow" data-i18n="hero.eyebrow">together with their families</p>
+          <h1 class="couple-names">
+            <span class="n1" data-i18n="name.1">Salma</span>
+            <span class="amp" data-i18n="amp">&amp;</span>
+            <span class="n2" data-i18n="name.2">Youssef</span>
+          </h1>
+          <p class="hero-sub" data-i18n="hero.sub">are getting married!</p>
+        </div>
+
+        <div class="hero-layout ar-only hero-ar">
+          <p class="hero-bismillah">بِسْمِ اللهِ الرَّحْمٰنِ الرَّحِيمِ</p>
+          <div class="hero-ar-stack">
+            <p class="hero-ar-lead">بفيضٍ من المودّة، وامتنانٍ لله على نعمه،</p>
+            <h1 class="couple-names">
+              <span class="n1">سلمى</span>
+              <span class="amp">و</span>
+              <span class="n2">يوسف</span>
+            </h1>
+            <p class="hero-ar-text"><span class="hero-ar-em">يسعد</span> أن يعلنا عقد قرانهما المبارك <span class="hero-ar-keep">بإذن الله</span></p>
+          </div>
+        </div>
+
         <div class="scroll-hint">
           <span data-i18n="scroll">scroll</span>
           <span class="chev"></span>
@@ -243,8 +259,8 @@
         <span class="swatch" style="background:#f4ead7"></span>
         <span class="swatch" style="background:#e6c98f"></span>
         <span class="swatch" style="background:#f3c9cb"></span>
-        <span class="swatch" style="background:#bcd6ea"></span>
-        <span class="swatch" style="background:#5b9bd0"></span>
+        <span class="swatch" style="background:#e8d4a8"></span>
+        <span class="swatch" style="background:#c9a25a"></span>
       </div>
 
       <div class="dress-notes">
@@ -268,10 +284,12 @@
         <p class="wall-hint" data-i18n="wall.tap">Tap a note to read it &amp; see who wrote it</p>
 
         <div class="wall-frame">
-          <span class="wall-count" id="wallCount" hidden></span>
-          <div class="wall-scroll" id="wallScroll">
-            <div class="wall-board" id="wallBoard" aria-live="polite">
-              <p class="wall-empty" id="wallEmpty" data-i18n="wall.empty">Be the first to pin a note!</p>
+          <div class="wall-frame-opening">
+            <span class="wall-count" id="wallCount" hidden></span>
+            <div class="wall-scroll" id="wallScroll">
+              <div class="wall-board" id="wallBoard" aria-live="polite">
+                <p class="wall-empty" id="wallEmpty" data-i18n="wall.empty">Be the first to pin a note!</p>
+              </div>
             </div>
           </div>
         </div>
@@ -289,7 +307,11 @@
         </div>
 
         <p class="closing-line" data-i18n="closing.line">Hope to see your beautiful faces there!</p>
-        <h3 class="closing-names" data-i18n="closing.names">Salma &amp; Youssef</h3>
+        <h3 class="closing-names">
+          <span data-i18n="name.1">Salma</span>
+          <span class="amp" data-i18n="amp">&amp;</span>
+          <span data-i18n="name.2">Youssef</span>
+        </h3>
       </div>
     </section>
 
